@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV3 — Lemon Pie · Bocado Griego · Mixta · Reina</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tv">
+<div class="marco">
+  <h1 class="shimmer">El Rey del Chajá</h1>
+  <div class="cuadrantes" id="cuad"></div>
+</div>
+<script>
+var DEF = {lemon:26000, bocado_1kg:28000, mixta:48000, reina_1kg:28000};
+var PRECIOS = Object.assign({}, DEF);
+try{
+  var g = JSON.parse(localStorage.getItem("chaja_prices_v1") || "null");
+  if(g && g.precios) PRECIOS = Object.assign({}, DEF, g.precios);
+}catch(e){}
+function fmt(n){ return "$ " + Number(n).toLocaleString("es-AR"); }
+var IMG = "https://framerusercontent.com/images/";
+var ITEMS = [
+  {n:"Lemon Pie", f:IMG+"dDYfKAiwixc2czVDJEryhuqQBj0.png", d:"Limón justo, merengue bien alto.", k:"lemon", porc:"1 kg · 8 porciones"},
+  {n:"Bocado Griego", f:IMG+"ggjBTCnBRaLJQi2IHcIY5L7PpA.png", d:"Café, dulce de leche y chocolate.", k:"bocado_1kg", porc:"1 kg · 8 porciones"},
+  {n:"Mixta", f:IMG+"6TYE1YOidQrWBoq3YZNeticgVhI.png", d:"Vainilla y chocolate, 2 kilos.", k:"mixta", porc:"2 kg · 16 porciones"},
+  {n:"Reina", f:IMG+"l80LvWtkcWyPCtzrAyiwwaYRz9U.png", d:"Dulce suave, chocolate blanco.", k:"reina_1kg", porc:"1 kg · 8 porciones"}
+];
+var c = document.getElementById("cuad");
+ITEMS.forEach(function(i){
+  var d = document.createElement("div");
+  d.className = "cuad";
+  d.innerHTML = '<img src="'+i.f+'" alt="Foto de '+i.n+'" loading="lazy" onerror="this.style.display=\'none\'">' +
+    '<h2 class="shimmer">'+i.n+'</h2><div class="desc">'+i.d+'</div>' +
+    '<div class="linea shimmer">'+fmt(PRECIOS[i.k])+' · '+i.porc+'</div>';
+  c.appendChild(d);
+});
+</script>
+</body>
+</html>

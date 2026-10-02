@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Rey del Chajá — Pastelería artesanal en Rosario</title>
+<meta name="description" content="El Rey del Chajá, pastelería artesanal en Rosario. Las 8 tortas clásicas, promo vigente y cómo comprar. Llamanos al 4856128.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1) ENTRADA: cartel luminoso tipográfico, sin imagen, cierre a los 3 s -->
+<div id="entrada" role="dialog" aria-label="Bienvenida">
+  <div class="cartel">
+    <p class="sobre">Rosario · Pastelería artesanal</p>
+    <h1 aria-label="EL REY DEL CHAJÁ"><span>EL REY</span><span>DEL CHAJÁ</span></h1>
+    <p class="bajada">Clásico. Artesanal. Inconfundible.</p>
+  </div>
+  <div class="acciones">
+    <button class="btn" id="btn-entrar">Entrar</button>
+    <button class="btn fantasma" id="btn-saltar">Saltar</button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="barra">
+    <span class="corona" id="corona">♛</span>
+    <span class="marca">El Rey del Chajá</span>
+    <nav class="menu">
+      <a href="#tortas">Tortas</a>
+      <a href="#como-comprar">Cómo comprar</a>
+      <a href="#promo">Promo</a>
+      <a href="#donde">Dónde estamos</a>
+    </nav>
+    <a class="tel-chip" href="tel:4856128">☎ 4856128</a>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="lema">Clásico. Artesanal. Inconfundible.</p>
+  <h1>El Rey del Chajá</h1>
+  <p>Pastelería tradicional rosarina. Ocho tortas de verdad, las ves en el mostrador y te las llevás.</p>
+</div>
+
+<main>
+<!-- 2) LAS 8 TORTAS -->
+<section class="bloque" id="tortas">
+  <div class="wrap">
+    <h2>Las 8 tortas</h2>
+    <p class="sub">Tocá cada una para ver qué lleva, los tamaños y el precio. Sin vueltas.</p>
+    <div class="grilla" id="grilla"></div>
+  </div>
+</section>
+
+<!-- Modal ficha -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Ficha de la torta">
+  <div class="ficha">
+    <div class="txt">
+      <button class="cerrar" id="modal-cerrar" aria-label="Cerrar">×</button>
+      <h2 id="f-nombre"></h2>
+      <img id="f-foto" src="" alt="">
+      <p id="f-desc"></p>
+      <h3>Ingredientes</h3>
+      <p id="f-ing"></p>
+      <h3>Tamaños y precios</h3>
+      <table class="tabla-precios" id="f-precios"></table>
+      <p id="f-ideal" style="font-style:italic"></p>
+      <a class="btn" href="#como-comprar" id="f-comprar">Cómo la compro</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3) PROMO VIGENTE — banda protagonista -->
+<section class="bloque" id="promo">
+  <div class="wrap">
+    <h2>Promo vigente</h2>
+    <p class="promo-detalle">1 kg de Chajá + 1 Zingarella</p>
+    <div class="promo-fotos">
+      <img src="https://framerusercontent.com/images/7uMI3s2Fv6Yc3pCjnSAVBfxSTsg.png" alt="Foto de la torta Chajá" loading="lazy" onerror="this.style.display='none'">
+      <img src="https://framerusercontent.com/images/KxiewTHWitk1WAAQf4fHMrGehJc.png" alt="Foto de la torta Zingarella" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="monto" id="promo-precio">$ 48.000</div>
+    <p class="promo-aclara">Válida en el local, hasta agotar stock del día. Preguntala en el mostrador o por el fijo.</p>
+    <a class="btn" href="tel:4856128">Llamar al 4856128</a>
+  </div>
+</section>
+
+<!-- 4) CÓMO COMPRAR -->
+<section class="bloque como-comprar" id="como-comprar">
+  <div class="wrap">
+    <h2>Cómo comprar</h2>
+    <p class="cita">“Vení al local. Te lo explicamos.”</p>
+    <p class="sub">No tomamos reservas ni hacemos envíos. No es capricho: la mousse y el chajá no sobreviven al viaje en moto, llegan rotas y no queremos entregarte eso. Las tortas del día están en el mostrador, elegís la que ves, te la llevás envuelta con faja de cartón. Si tenés dudas, llamanos al <a href="tel:4856128"><strong>4856128</strong></a> en horario de atención.</p>
+    <div class="pasos">
+      <div class="paso"><div class="n">🚶</div><h3>1. Vení</h3><p>Acercate al local en horario de atención, sin reserva previa.</p></div>
+      <div class="paso"><div class="n">👀</div><h3>2. Mirá el mostrador</h3><p>Elegís la torta que ves, la de verdad, no una foto de catálogo.</p></div>
+      <div class="paso"><div class="n">📦</div><h3>3. Llevátela</h3><p>Te la entregamos envuelta con faja de cartón, lista para la mesa.</p></div>
+    </div>
+    <div class="conserva">
+      <strong>Conservación:</strong> mantené la torta en heladera y sacala unos 20 minutos antes de servirla. El chajá y la mousse se disfrutan bien fríos. Consumir dentro de las 48 horas.
+    </div>
+  </div>
+</section>
+
+<!-- 4) HISTORIA — Variante B, 3 hitos -->
+<section class="bloque" id="historia">
+  <div class="wrap">
+    <h2>El clásico inconfundible que nos une</h2>
+    <p class="sub">Tres momentos de una historia que se sigue escribiendo en Rosario.</p>
+    <div class="hitos">
+      <div class="hito"><div class="txt"><div class="anio">Los comienzos</div><h3>El primer mostrador</h3><p>Un local chico, recetas de familia y el chajá que empezó a hacerse un nombre entre los vecinos.</p></div></div>
+      <div class="hito"><div class="txt"><div class="anio">El boca en boca</div><h3>La torta de los festejos</h3><p>Cumpleaños, domingos en familia y mesas de fiesta: el Rey del Chajá se volvió la torta que no puede faltar.</p></div></div>
+      <div class="hito"><div class="txt"><div class="anio">Hoy</div><h3>Tradición que sigue</h3><p>Las mismas recetas artesanales, el mismo mostrador de siempre. Clásico, artesanal e inconfundible.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6) DÓNDE ESTAMOS -->
+<section class="bloque" id="donde">
+  <div class="wrap">
+    <h2>Dónde estamos</h2>
+    <p class="sub">Atendemos por teléfono fijo en horario de local.</p>
+    <div class="tel-gigante">
+      <a href="tel:4856128">4856128</a>
+      <small>Tocá el número para llamar</small>
+    </div>
+    <div class="datos">
+      <div class="dato"><h3>Dirección</h3><p>San Martín 1234, Rosario, Santa Fe</p></div>
+      <div class="dato"><h3>Horarios</h3><p>Lunes a sábados de 9 a 13 y de 16 a 20.<br>Domingos de 9 a 13.</p></div>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa: El Rey del Chajá, Rosario" loading="lazy"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-60.6700%2C-32.9700%2C-60.6200%2C-32.9300&amp;layer=mapnik&amp;marker=-32.9468%2C-60.6393"></iframe>
+    </div>
+    <p class="ejemplo">Dirección y horarios de ejemplo para el mock — se confirman con el cliente.</p>
+  </div>
+</section>
+</main>
+
+<!-- 7) FOOTER -->
+<footer>
+  <strong>El Rey del Chajá</strong> · Pastelería artesanal · Rosario<br>
+  Tel fijo 4856128 · San Martín 1234, Rosario<br>
+  Clásico. Artesanal. Inconfundible.
+</footer>
+
+<script>
+// Fuente única simulada: localStorage (la carga admin.html) o valores por defecto.
+var PRECIOS_DEF = {
+  chaja_1kg:28000, chaja_15kg:42000, zingarella:25000, lemon:26000,
+  mousse_1kg:28000, mousse_15kg:42000, selva_1kg:28000, selva_15kg:42000,
+  bocado_1kg:28000, bocado_15kg:42000, reina_1kg:28000, reina_15kg:42000,
+  mixta:48000, promo:48000
+};
+function cargarPrecios(){
+  try{
+    var g = JSON.parse(localStorage.getItem("chaja_prices_v1") || "null");
+    if(g && g.precios) return Object.assign({}, PRECIOS_DEF, g.precios);
+  }catch(e){}
+  return Object.assign({}, PRECIOS_DEF);
+}
+var PRECIOS = cargarPrecios();
+function fmt(n){ return "$ " + Number(n).toLocaleString("es-AR"); }
+
+var IMG = "https://framerusercontent.com/images/";
+var PRODUCTOS = [
+  {id:"chaja", nombre:"Chajá", foto:IMG+"7uMI3s2Fv6Yc3pCjnSAVBfxSTsg.png", desc:"La reina de la casa: suave, fresca y llena de merengues.",
+   ing:"Bizcochuelo de vainilla, crema chantilly, merengues, duraznos y frutillas en temporada.",
+   filas:[["1 kg · 8 porciones","chaja_1kg"],["1 ½ kg · 12 porciones","chaja_15kg"]],
+   ideal:"Ideal para cumpleaños: la de 1 ½ kg alcanza para 12 porciones."},
+  {id:"zingarella", nombre:"Zingarella", foto:IMG+"KxiewTHWitk1WAAQf4fHMrGehJc.png", desc:"Flan casero y chantilly con corona de chocolate y cerezas.",
+   ing:"Bizcochuelo de vainilla, flan casero, crema chantilly o dulce de leche, chocolate y cerezas.",
+   filas:[["1 kg aprox · 8 porciones","zingarella"]],
+   ideal:"Ideal si te gusta el flan: es la distinta de la vitrina."},
+  {id:"lemon", nombre:"Lemon Pie", foto:IMG+"dDYfKAiwixc2czVDJEryhuqQBj0.png", desc:"Ácido justo, merengue italiano bien alto.",
+   ing:"Masa frola, crema de limón y merengue italiano.",
+   filas:[["1 kg · 8 porciones","lemon"]],
+   ideal:"Ideal para cerrar una comida: fresca y liviana."},
+  {id:"mousse", nombre:"Mousse", foto:IMG+"U2cHvviPQuuBCZkVcxjhVPpHfA.png", desc:"Chocolate intenso con corazón de dulce de leche.",
+   ing:"Bizcochuelo de chocolate, dulce de leche, mousse de chocolate y baño de chocolate.",
+   filas:[["1 kg · 8 porciones","mousse_1kg"],["1 ½ kg · 12 porciones","mousse_15kg"]],
+   ideal:"Ideal para chocolateros de ley."},
+  {id:"selva", nombre:"Selva Negra", foto:IMG+"FVEvjLDZLxkR6zAuge8FhaaTpnw.png", desc:"El clásico alemán con cerezas al maraschino.",
+   ing:"Bizcochuelo de chocolate, mermelada de frutillas, crema chantilly, cerezas al maraschino y baño de chocolate.",
+   filas:[["1 kg · 8 porciones","selva_1kg"],["1 ½ kg · 12 porciones","selva_15kg"]],
+   ideal:"Ideal para festejos grandes: rinde y gusta a todos."},
+  {id:"bocado", nombre:"Bocado Griego", foto:IMG+"ggjBTCnBRaLJQi2IHcIY5L7PpA.png", desc:"Café, dulce de leche y granizada de chocolate.",
+   ing:"Bizcochuelo, dulce de leche, crema de café, granizada con chocolate y merengues.",
+   filas:[["1 kg · 8 porciones","bocado_1kg"],["1 ½ kg · 12 porciones","bocado_15kg"]],
+   ideal:"Ideal para los que toman café: es su torta."},
+  {id:"mixta", nombre:"Mixta", foto:IMG+"6TYE1YOidQrWBoq3YZNeticgVhI.png", desc:"Vainilla y chocolate en una sola torta de 2 kilos.",
+   ing:"Bizcochuelo de vainilla y chocolate, dulce de leche y crema chantilly, duraznos y merengues.",
+   filas:[["2 kg · 16 porciones","mixta"]],
+   ideal:"Ideal para el cumple familiar: 16 porciones en una sola torta."},
+  {id:"reina", nombre:"Reina", foto:IMG+"l80LvWtkcWyPCtzrAyiwwaYRz9U.png", desc:"Dulzura suave con chocolate blanco.",
+   ing:"Bizcochuelo de vainilla, dulce de leche, dulce a la crema y chocolate blanco.",
+   filas:[["1 kg · 8 porciones","reina_1kg"],["1 ½ kg · 12 porciones","reina_15kg"]],
+   ideal:"Ideal si te gusta lo dulce pero suave."}
+];
+
+// Grilla
+var grilla = document.getElementById("grilla");
+PRODUCTOS.forEach(function(p){
+  var b = document.createElement("button");
+  b.className = "card";
+  b.innerHTML = '<img class="foto" src="'+p.foto+'" alt="Foto de '+p.nombre+'" loading="lazy" onerror="this.style.display=\'none\'">' +
+    '<div class="cuerpo"><h3>'+p.nombre+'</h3>' +
+    '<div class="precio">'+fmt(PRECIOS[p.filas[0][1]])+'</div>' +
+    '<div class="porc">'+p.filas[0][0]+(p.filas[1] ? " · también "+p.filas[1][0] : "")+'</div></div>';
+  b.addEventListener("click", function(){ abrirFicha(p); });
+  grilla.appendChild(b);
+});
+
+// Modal ficha
+var modal = document.getElementById("modal");
+function abrirFicha(p){
+  document.getElementById("f-nombre").textContent = p.nombre;
+  var f = document.getElementById("f-foto");
+  f.src = p.foto; f.alt = "Foto de " + p.nombre;
+  f.style.display = ""; f.onerror = function(){ f.style.display = "none"; };
+  document.getElementById("f-desc").textContent = p.desc;
+  document.getElementById("f-ing").textContent = p.ing;
+  var t = document.getElementById("f-precios"); t.innerHTML = "";
+  p.filas.forEach(function(r){
+    t.innerHTML += "<tr><td>"+r[0]+"</td><td>"+fmt(PRECIOS[r[1]])+"</td></tr>";
+  });
+  document.getElementById("f-ideal").textContent = p.ideal;
+  modal.classList.add("abierto");
+}
+document.getElementById("modal-cerrar").addEventListener("click", function(){ modal.classList.remove("abierto"); });
+modal.addEventListener("click", function(e){ if(e.target === modal) modal.classList.remove("abierto"); });
+document.getElementById("f-comprar").addEventListener("click", function(){ modal.classList.remove("abierto"); });
+
+// Promo desde la fuente
+document.getElementById("promo-precio").textContent = fmt(PRECIOS.promo);
+
+// Entrada: botón o skip auto a los 3 s
+var entrada = document.getElementById("entrada");
+var cerrada = false;
+function cerrarEntrada(){ if(!cerrada){ cerrada = true; entrada.classList.add("fuera"); } }
+document.getElementById("btn-entrar").addEventListener("click", cerrarEntrada);
+document.getElementById("btn-saltar").addEventListener("click", cerrarEntrada);
+setTimeout(cerrarEntrada, 3000);
+
+// Corona sutil al scrollear
+var corona = document.getElementById("corona");
+window.addEventListener("scroll", function(){
+  var s = Math.min(window.scrollY / 1200, 1);
+  corona.style.transform = "scale(" + (1 + s * 0.35) + ") rotate(" + (s * 12) + "deg)";
+}, {passive:true});
+</script>
+</body>
+</html>

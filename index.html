@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Rey del Chajá — Nueva web (demo)</title>
+<style>
+  :root { --marca:#E8491D; --amarillo:#FFC107; --texto:#3A2317; --crema:#FFF8EF; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--crema); color:var(--texto); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1rem; }
+  h1 { color:var(--marca); font-size:clamp(2rem,7vw,3.5rem); text-align:center; line-height:1.05; }
+  p.sub { margin:.75rem 0 2rem; text-align:center; max-width:36rem; }
+  nav { display:grid; gap:.9rem; width:min(24rem,100%); }
+  a.card { display:block; text-decoration:none; color:var(--texto); background:#fff; border:2px solid var(--marca); border-radius:.9rem; padding:1rem 1.2rem; font-weight:700; font-size:1.15rem; }
+  a.card small { display:block; font-weight:400; font-size:.9rem; opacity:.75; margin-top:.2rem; }
+  a.card:hover { background:var(--marca); color:#fff; }
+  a.card:hover small { opacity:.9; }
+  footer { margin-top:2.5rem; font-size:.85rem; opacity:.65; text-align:center; }
+</style>
+</head>
+<body>
+  <h1>EL REY DEL CHAJÁ<br>Nueva web — demo</h1>
+  <p class="sub">Recorrido navegable para presentación. Elegí por dónde entrar:</p>
+  <nav>
+    <a class="card" href="mock/index.html">Web<small>Entrada, tortas, cómo comprar, historia, promo y contacto</small></a>
+    <a class="card" href="mock/admin.html">Admin<small>Precios, fechas especiales y panel "Qué miran"</small></a>
+    <a class="card" href="mock/tv1.html">TV 1 — Promo<small>Pantalla del local, solo promoción</small></a>
+    <a class="card" href="mock/tv2.html">TV 2<small>Chajá · Zingarella · Mousse · Selva Negra</small></a>
+    <a class="card" href="mock/tv3.html">TV 3<small>Lemon Pie · Bocado Griego · Mixta · Reina</small></a>
+  </nav>
+  <footer>Mock de presentación — fotos y precios de muestra · Sin WhatsApp por decisión del negocio</footer>
+</body>
+</html>

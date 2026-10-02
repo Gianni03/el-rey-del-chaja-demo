@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin de precios — El Rey del Chajá (mock)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="admin">
+<div class="wrap" style="padding-top:24px;padding-bottom:48px;max-width:760px">
+  <p><a href="index.html">← Volver a la web</a></p>
+  <h1>Admin de precios</h1>
+  <div class="nota-admin">
+    <strong>Simulación:</strong> esto representa al futuro <code>products.json</code>, la fuente única de precios.
+    Lo que guardes acá se refleja en la web y en los 3 TVs de este mock (mediante el navegador).
+  </div>
+
+  <h2 style="text-align:left">Precios por producto</h2>
+  <div id="campos"></div>
+
+  <h2 style="text-align:left;margin-top:32px">Promo vigente</h2>
+  <div class="campo">
+    <div class="fila">
+      <div><label for="p-promo">Promo (Chajá 1 kg + Zingarella)</label><br>
+      <input type="number" id="p-promo" min="0" step="500"></div>
+    </div>
+  </div>
+
+  <h2 style="text-align:left;margin-top:32px">Fechas especiales</h2>
+  <p>Cada fecha tiene su aviso prearmado. Solo tildás <strong>Activo</strong>, ajustás el precio si querés y ponés inicio y fin. Se apaga sola.</p>
+  <div id="fechas"></div>
+
+  <div style="margin:28px 0;display:flex;gap:12px;flex-wrap:wrap">
+    <button class="btn" id="guardar">Guardar todo</button>
+    <span id="ok" style="align-self:center;font-weight:700;color:var(--marca-osc)"></span>
+  </div>
+
+  <section class="analytics" aria-label="Qué miran, datos de ejemplo">
+    <h2 style="text-align:left">Qué miran (ejemplo)</h2>
+    <div class="nota-admin ejemplo-aviso">
+      <strong>Datos de ejemplo para el mock.</strong> En producción esta sección se alimenta sola con
+      GA4 Data API (service account, refresco diario, sin costo extra). No hay que cargar nada a mano.
+    </div>
+    <h3 style="margin-top:16px">Ranking de tortas por vistas (últimos 28 días, ejemplo)</h3>
+    <ul class="ranking">
+      <li><span>Chajá</span><span class="barra"><i style="width:100%"></i></span><span>1.240</span></li>
+      <li><span>Zingarella</span><span class="barra"><i style="width:72%"></i></span><span>893</span></li>
+      <li><span>Mousse</span><span class="barra"><i style="width:54%"></i></span><span>670</span></li>
+      <li><span>Selva Negra</span><span class="barra"><i style="width:47%"></i></span><span>583</span></li>
+      <li><span>Mixta</span><span class="barra"><i style="width:41%"></i></span><span>508</span></li>
+      <li><span>Lemon Pie</span><span class="barra"><i style="width:33%"></i></span><span>409</span></li>
+      <li><span>Bocado Griego</span><span class="barra"><i style="width:26%"></i></span><span>322</span></li>
+      <li><span>Reina</span><span class="barra"><i style="width:21%"></i></span><span>260</span></li>
+    </ul>
+    <div class="kpis">
+      <div class="kpi"><strong>86</strong>Clics a llamar por semana (ejemplo)</div>
+      <div class="kpi"><strong>Sáb 11 h</strong>Horario pico de visitas (ejemplo)</div>
+      <div class="kpi"><strong>78 % Rosario</strong>Origen: Rosario / resto (ejemplo)</div>
+    </div>
+    <div class="reco"><strong>Recomendación (ejemplo):</strong> la Zingarella es la segunda más mirada pero está lejos del Chajá. Conviene ponerla primera en la TV2 del mostrador este sábado a la mañana, que es el horario pico.</div>
+  </section>
+
+  <h2 style="text-align:left">Ver cómo queda</h2>
+  <p>
+    <a class="btn" href="index.html">Web</a>
+    <a class="btn" href="tv1.html">TV1 Promo</a>
+    <a class="btn" href="tv2.html">TV2</a>
+    <a class="btn" href="tv3.html">TV3</a>
+  </p>
+</div>
+
+<script>
+var CAMPOS = [
+  ["Chajá 1 kg (8 porciones)", "chaja_1kg", 28000],
+  ["Chajá 1 ½ kg (12 porciones)", "chaja_15kg", 42000],
+  ["Zingarella 1 kg (8 porciones)", "zingarella", 25000],
+  ["Lemon Pie 1 kg (8 porciones)", "lemon", 26000],
+  ["Mousse 1 kg (8 porciones)", "mousse_1kg", 28000],
+  ["Mousse 1 ½ kg (12 porciones)", "mousse_15kg", 42000],
+  ["Selva Negra 1 kg (8 porciones)", "selva_1kg", 28000],
+  ["Selva Negra 1 ½ kg (12 porciones)", "selva_15kg", 42000],
+  ["Bocado Griego 1 kg (8 porciones)", "bocado_1kg", 28000],
+  ["Bocado Griego 1 ½ kg (12 porciones)", "bocado_15kg", 42000],
+  ["Reina 1 kg (8 porciones)", "reina_1kg", 28000],
+  ["Reina 1 ½ kg (12 porciones)", "reina_15kg", 42000],
+  ["Mixta 2 kg (16 porciones)", "mixta", 48000]
+];
+var FECHAS = [
+  ["Navidad", "navidad"], ["Año Nuevo", "anonuevo"], ["Pascuas", "pascuas"],
+  ["Día del Padre", "padre"], ["Día de la Madre", "madre"],
+  ["Día del Amigo", "amigo"], ["Temporada Frutilla", "frutilla"]
+];
+var KEY = "chaja_prices_v1";
+
+function leer(){
+  try{
+    var g = JSON.parse(localStorage.getItem(KEY) || "null");
+    if(g) return g;
+  }catch(e){}
+  return null;
+}
+
+// Armar inputs de precios
+var cont = document.getElementById("campos");
+var g0 = leer();
+CAMPOS.forEach(function(c){
+  var val = (g0 && g0.precios && g0.precios[c[1]] != null) ? g0.precios[c[1]] : c[2];
+  var d = document.createElement("div");
+  d.className = "campo";
+  d.innerHTML = '<label>'+c[0]+'</label><br><input type="number" data-k="'+c[1]+'" value="'+val+'" min="0" step="500">';
+  cont.appendChild(d);
+});
+document.getElementById("p-promo").value = (g0 && g0.precios && g0.precios.promo != null) ? g0.precios.promo : 48000;
+
+// Armar fechas
+var fc = document.getElementById("fechas");
+FECHAS.forEach(function(f){
+  var s = (g0 && g0.fechas && g0.fechas[f[1]]) || {activo:false, inicio:"", fin:""};
+  var d = document.createElement("div");
+  d.className = "campo";
+  d.innerHTML = '<label><input type="checkbox" data-f="'+f[1]+'-activo"'+(s.activo?" checked":"")+'> '+f[0]+' — Activo</label>' +
+    '<div class="fila" style="margin-top:8px"><div><label>Inicio</label><br><input type="date" data-f="'+f[1]+'-inicio" value="'+(s.inicio||"")+'"></div>' +
+    '<div><label>Fin</label><br><input type="date" data-f="'+f[1]+'-fin" value="'+(s.fin||"")+'"></div></div>';
+  fc.appendChild(d);
+});
+
+document.getElementById("guardar").addEventListener("click", function(){
+  var precios = {};
+  document.querySelectorAll("input[data-k]").forEach(function(i){ precios[i.getAttribute("data-k")] = Number(i.value); });
+  precios.promo = Number(document.getElementById("p-promo").value);
+  var fechas = {};
+  FECHAS.forEach(function(f){
+    fechas[f[1]] = {
+      activo: document.querySelector('[data-f="'+f[1]+'-activo"]').checked,
+      inicio: document.querySelector('[data-f="'+f[1]+'-inicio"]').value,
+      fin: document.querySelector('[data-f="'+f[1]+'-fin"]').value
+    };
+  });
+  localStorage.setItem(KEY, JSON.stringify({precios:precios, fechas:fechas}));
+  document.getElementById("ok").textContent = "✓ Guardado. Abrí la web o los TVs para verlo.";
+});
+</script>
+</body>
+</html>
