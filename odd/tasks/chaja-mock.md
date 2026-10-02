@@ -28,8 +28,8 @@ Alcance autorizado: solo mock en `mock/` con fotos hotlinkeadas de la web actual
 - [x] T15 (R3): entrada cartel lo más grande posible (clamp agresivo, ocupa viewport).
 - [x] T16 (R3): shimmer TVs como líquido lento que va y viene, sube/baja intensidad, tiempos desincronizados por elemento.
 - [x] T17 (R3): verificación R3 padre OK — cartel clamp(4rem,18vw,16rem) presente, keyframes líquido presentes, cero WhatsApp. Sensación visual pendiente de ojo en browser.
-- [ ] T18: `index.html` hub demo en raíz ("Nueva web") con links a web, admin y 3 TVs.
-- [ ] T19: repo git local + commit inicial del mock.
+- [x] T18: `index.html` hub demo en raíz ("Nueva web") con links a web, admin y 3 TVs.
+- [x] T19: repo git local + commit inicial del mock (`be807d4`). Fotos WhatsApp fuente quedan fuera del repo (untracked, material de referencia).
 
 ## Datos reales a usar
 
