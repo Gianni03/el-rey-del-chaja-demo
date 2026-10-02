@@ -33,6 +33,9 @@ Alcance autorizado: solo mock en `mock/` con fotos hotlinkeadas de la web actual
 - [x] T20 (R4): polish mobile web + admin (tap targets, modal full-screen, inputs sin zoom iOS, mapa responsive, cartel 360px sin overflow).
 - [x] T21 (R4): TVs en celu con experiencia landscape — portrait muestra aviso "girá el celu" + preview, landscape muestra layout real escalado.
 - [x] T22 (R4): verificación R4 padre OK — solo mock/ tocado, sin WhatsApp, orientation queries presentes. Push a Pages (`ad2684d`). Check visual en celu real pendiente del usuario.
+- [x] T23 (R5): revertir aviso "girá el celu" + preview en tv1/2/3 — forzar 2 filas × 2 columnas full-width en mobile, vertical u horizontal.
+- [x] T24 (R5): web mobile estilo app — logo arriba (header sticky), navegación en barra fija abajo.
+- [x] T25 (R5): verificación R5 padre OK — revert completo (sin rastros aviso/orientation), sin WhatsApp. Push a Pages. Visual en celu pendiente del usuario.
 
 ## Datos reales a usar
 
