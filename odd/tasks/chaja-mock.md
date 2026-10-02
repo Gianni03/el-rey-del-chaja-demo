@@ -30,6 +30,9 @@ Alcance autorizado: solo mock en `mock/` con fotos hotlinkeadas de la web actual
 - [x] T17 (R3): verificación R3 padre OK — cartel clamp(4rem,18vw,16rem) presente, keyframes líquido presentes, cero WhatsApp. Sensación visual pendiente de ojo en browser.
 - [x] T18: `index.html` hub demo en raíz ("Nueva web") con links a web, admin y 3 TVs.
 - [x] T19: repo git local + commit inicial del mock (`be807d4`). Fotos WhatsApp fuente quedan fuera del repo (untracked, material de referencia).
+- [ ] T20 (R4): polish mobile web + admin (tap targets, modal full-screen, inputs sin zoom iOS, mapa responsive, cartel 360px sin overflow).
+- [ ] T21 (R4): TVs en celu con experiencia landscape — portrait muestra aviso "girá el celu" + preview, landscape muestra layout real escalado.
+- [ ] T22 (R4): verificación R4.
 
 ## Datos reales a usar
 

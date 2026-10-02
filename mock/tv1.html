@@ -7,6 +7,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="tv">
+<div class="tv-aviso" aria-hidden="true">
+  <div class="tv-aviso-card">
+    <div class="tv-aviso-giro">📱 🔄</div>
+    <h2>Girá el celu para ver la TV como en el local</h2>
+    <p class="tv-aviso-sub">Vista previa chica, sin interacción</p>
+    <div class="tv-mini">
+      <p class="mini-marca">El Rey del Chajá</p>
+      <p class="mini-titulo">PROMO</p>
+      <p class="mini-detalle">1 kg de Chajá + 1 Zingarella</p>
+      <div class="mini-fotos">
+        <img src="https://framerusercontent.com/images/7uMI3s2Fv6Yc3pCjnSAVBfxSTsg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://framerusercontent.com/images/KxiewTHWitk1WAAQf4fHMrGehJc.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="mini-precio">$ 48.000</div>
+    </div>
+  </div>
+</div>
 <div class="marco promo-marco">
   <p class="marca-tv">El Rey del Chajá</p>
   <p style="letter-spacing:.3em;text-transform:uppercase;color:var(--texto-suave);margin:0">Solo en el local</p>
@@ -26,6 +43,14 @@ try{
   if(g && g.precios && g.precios.promo != null) p = g.precios.promo;
 }catch(e){}
 document.getElementById("promo-precio").textContent = "$ " + Number(p).toLocaleString("es-AR");
+// Aviso vertical en celu: clase de apoyo a la media query de orientación.
+try{
+  var mq = window.matchMedia("(orientation: portrait)");
+  function tvOri(){ document.body.classList.toggle("tv-vertical", mq.matches && window.innerWidth < 720); }
+  if(mq.addEventListener){ mq.addEventListener("change", tvOri); } else if(mq.addListener){ mq.addListener(tvOri); }
+  window.addEventListener("resize", tvOri, {passive:true});
+  tvOri();
+}catch(e){}
 </script>
 </body>
 </html>

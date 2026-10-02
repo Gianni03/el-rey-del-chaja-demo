@@ -7,6 +7,18 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="tv">
+<div class="tv-aviso" aria-hidden="true">
+  <div class="tv-aviso-card">
+    <div class="tv-aviso-giro">📱 🔄</div>
+    <h2>Girá el celu para ver la TV como en el local</h2>
+    <p class="tv-aviso-sub">Vista previa chica, sin interacción</p>
+    <div class="tv-mini">
+      <p class="mini-marca">El Rey del Chajá</p>
+      <p class="mini-titulo">Lemon · Bocado · Mixta · Reina</p>
+      <div class="mini-nombres"><span>Lemon Pie</span><span>Bocado Griego</span><span>Mixta</span><span>Reina</span></div>
+    </div>
+  </div>
+</div>
 <div class="marco">
   <h1 class="shimmer">El Rey del Chajá</h1>
   <div class="cuadrantes" id="cuad"></div>
@@ -35,6 +47,14 @@ ITEMS.forEach(function(i){
     '<div class="linea shimmer">'+fmt(PRECIOS[i.k])+' · '+i.porc+'</div>';
   c.appendChild(d);
 });
+// Aviso vertical en celu: clase de apoyo a la media query de orientación.
+try{
+  var mq = window.matchMedia("(orientation: portrait)");
+  function tvOri(){ document.body.classList.toggle("tv-vertical", mq.matches && window.innerWidth < 720); }
+  if(mq.addEventListener){ mq.addEventListener("change", tvOri); } else if(mq.addListener){ mq.addListener(tvOri); }
+  window.addEventListener("resize", tvOri, {passive:true});
+  tvOri();
+}catch(e){}
 </script>
 </body>
 </html>
