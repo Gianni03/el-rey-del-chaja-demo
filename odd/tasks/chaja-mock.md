@@ -38,7 +38,7 @@ Alcance autorizado: solo mock en `mock/` con fotos hotlinkeadas de la web actual
 - [x] T25 (R5): verificación R5 padre OK — revert completo (sin rastros aviso/orientation), sin WhatsApp. Push a Pages. Visual en celu pendiente del usuario.
 - [x] T26 (R6): quitar precios de la web demo y TVs — mostrar "Consultar", el admin sigue funcional (si se carga precio ahí, se muestra).
 - [x] T27 (R6): detallar alcance en el hub sin horas — desarrollo, diseño, deploy, DNS dominio, rondas de cambios, implementación TVs en el local. Ancla comercial 2.5M + paquete 1.7M conservados.
-- [x] T28 (R6): verificación R6 padre OK — sin $ con números en web/TVs, sin WhatsApp en mock/, hub sin mención de horas. Push a Pages. Visual pendiente del usuario.
+- [x] T28 (R6): CORREGIDO — malinterpreté: el usuario pedía sacar los números del TRABAJO, no los de tortas. Revertido mock/ a precios restaurados (`1e55121`); hub sin ningún número comercial (solo "te los paso por mensaje") + alcance detallado. Verificado: sin 2.5M/1.7M/3 pagos en demo.
 
 ## Datos reales a usar
 
