@@ -79,7 +79,7 @@
       <img src="https://framerusercontent.com/images/7uMI3s2Fv6Yc3pCjnSAVBfxSTsg.png" alt="Foto de la torta Chajá" loading="lazy" onerror="this.style.display='none'">
       <img src="https://framerusercontent.com/images/KxiewTHWitk1WAAQf4fHMrGehJc.png" alt="Foto de la torta Zingarella" loading="lazy" onerror="this.style.display='none'">
     </div>
-    <div class="monto" id="promo-precio">Consultar</div>
+    <div class="monto" id="promo-precio">$ 48.000</div>
     <p class="promo-aclara">Válida en el local, hasta agotar stock del día. Preguntala en el mostrador o por el fijo.</p>
     <a class="btn" href="tel:4856128">Llamar al 4856128</a>
   </div>
@@ -154,8 +154,13 @@
 </nav>
 
 <script>
-// Fuente única: localStorage (la carga admin.html). Sin valor cargado → "Consultar".
-var PRECIOS_DEF = {};
+// Fuente única simulada: localStorage (la carga admin.html) o valores por defecto.
+var PRECIOS_DEF = {
+  chaja_1kg:28000, chaja_15kg:42000, zingarella:25000, lemon:26000,
+  mousse_1kg:28000, mousse_15kg:42000, selva_1kg:28000, selva_15kg:42000,
+  bocado_1kg:28000, bocado_15kg:42000, reina_1kg:28000, reina_15kg:42000,
+  mixta:48000, promo:48000
+};
 function cargarPrecios(){
   try{
     var g = JSON.parse(localStorage.getItem("chaja_prices_v1") || "null");
@@ -164,10 +169,7 @@ function cargarPrecios(){
   return Object.assign({}, PRECIOS_DEF);
 }
 var PRECIOS = cargarPrecios();
-function fmt(v){
-  if(v == null || v === "" || isNaN(Number(v))) return "Consultar";
-  return "$ " + Number(v).toLocaleString("es-AR");
-}
+function fmt(n){ return "$ " + Number(n).toLocaleString("es-AR"); }
 
 var IMG = "https://framerusercontent.com/images/";
 var PRODUCTOS = [

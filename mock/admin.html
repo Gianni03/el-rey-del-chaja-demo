@@ -13,7 +13,6 @@
   <div class="nota-admin">
     <strong>Simulación:</strong> esto representa al futuro <code>products.json</code>, la fuente única de precios.
     Lo que guardes acá se refleja en la web y en los 3 TVs de este mock (mediante el navegador).
-    Si dejás un campo vacío y guardás, la web y las TVs muestran “Consultar” en ese precio.
   </div>
 
   <h2 style="text-align:left">Precios por producto</h2>
@@ -105,16 +104,13 @@ function leer(){
 var cont = document.getElementById("campos");
 var g0 = leer();
 CAMPOS.forEach(function(c){
-  var guardado = (g0 && g0.precios && (c[1] in g0.precios)) ? g0.precios[c[1]] : c[2];
-  var val = (guardado == null) ? "" : guardado;
+  var val = (g0 && g0.precios && g0.precios[c[1]] != null) ? g0.precios[c[1]] : c[2];
   var d = document.createElement("div");
   d.className = "campo";
-  d.innerHTML = '<label>'+c[0]+'</label><br><input type="number" data-k="'+c[1]+'" value="'+val+'" min="0" step="500" placeholder="Vacío = Consultar">';
+  d.innerHTML = '<label>'+c[0]+'</label><br><input type="number" data-k="'+c[1]+'" value="'+val+'" min="0" step="500">';
   cont.appendChild(d);
 });
-var promoG = (g0 && g0.precios && ("promo" in g0.precios)) ? g0.precios.promo : 48000;
-document.getElementById("p-promo").value = (promoG == null) ? "" : promoG;
-document.getElementById("p-promo").placeholder = "Vacío = Consultar";
+document.getElementById("p-promo").value = (g0 && g0.precios && g0.precios.promo != null) ? g0.precios.promo : 48000;
 
 // Armar fechas
 var fc = document.getElementById("fechas");
@@ -130,11 +126,8 @@ FECHAS.forEach(function(f){
 
 document.getElementById("guardar").addEventListener("click", function(){
   var precios = {};
-  document.querySelectorAll("input[data-k]").forEach(function(i){
-    precios[i.getAttribute("data-k")] = (i.value === "") ? null : Number(i.value);
-  });
-  var pv = document.getElementById("p-promo").value;
-  precios.promo = (pv === "") ? null : Number(pv);
+  document.querySelectorAll("input[data-k]").forEach(function(i){ precios[i.getAttribute("data-k")] = Number(i.value); });
+  precios.promo = Number(document.getElementById("p-promo").value);
   var fechas = {};
   FECHAS.forEach(function(f){
     fechas[f[1]] = {

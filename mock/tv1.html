@@ -16,17 +16,16 @@
     <img src="https://framerusercontent.com/images/7uMI3s2Fv6Yc3pCjnSAVBfxSTsg.png" alt="Foto de la torta Chajá">
     <img src="https://framerusercontent.com/images/KxiewTHWitk1WAAQf4fHMrGehJc.png" alt="Foto de la torta Zingarella">
   </div>
-  <div class="precio-tv shimmer" id="promo-precio">Consultar</div>
+  <div class="precio-tv shimmer" id="promo-precio">$ 48.000</div>
   <p style="color:var(--texto-suave)">Válida hoy, hasta agotar stock del día</p>
 </div>
 <script>
-var p = null; // Sin valor cargado en el admin → "Consultar".
+var DEF = 48000, p = DEF;
 try{
   var g = JSON.parse(localStorage.getItem("chaja_prices_v1") || "null");
-  if(g && g.precios && g.precios.promo != null && g.precios.promo !== "") p = g.precios.promo;
+  if(g && g.precios && g.precios.promo != null) p = g.precios.promo;
 }catch(e){}
-document.getElementById("promo-precio").textContent =
-  (p == null || isNaN(Number(p))) ? "Consultar" : "$ " + Number(p).toLocaleString("es-AR");
+document.getElementById("promo-precio").textContent = "$ " + Number(p).toLocaleString("es-AR");
 </script>
 </body>
 </html>
