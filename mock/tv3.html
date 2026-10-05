@@ -12,13 +12,16 @@
   <div class="cuadrantes" id="cuad"></div>
 </div>
 <script>
-var DEF = {lemon:26000, bocado_1kg:28000, mixta:48000, reina_1kg:28000};
+var DEF = {}; // Sin valor cargado en el admin → "Consultar".
 var PRECIOS = Object.assign({}, DEF);
 try{
   var g = JSON.parse(localStorage.getItem("chaja_prices_v1") || "null");
   if(g && g.precios) PRECIOS = Object.assign({}, DEF, g.precios);
 }catch(e){}
-function fmt(n){ return "$ " + Number(n).toLocaleString("es-AR"); }
+function fmt(v){
+  if(v == null || v === "" || isNaN(Number(v))) return "Consultar";
+  return "$ " + Number(v).toLocaleString("es-AR");
+}
 var IMG = "https://framerusercontent.com/images/";
 var ITEMS = [
   {n:"Lemon Pie", f:IMG+"dDYfKAiwixc2czVDJEryhuqQBj0.png", d:"Limón justo, merengue bien alto.", k:"lemon", porc:"1 kg · 8 porciones"},
